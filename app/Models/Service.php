@@ -13,4 +13,8 @@ class Service extends Model
         'description',
         'price'
     ];
+
+    public function quoteRequests() {
+        return $this->belongsToMany(QuoteRequest::class);
+    }
 }
