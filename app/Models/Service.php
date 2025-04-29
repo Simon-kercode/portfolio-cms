@@ -5,14 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use ApiPlatform\Metadata\ApiResource;
 
-
 #[ApiResource]
-class Project extends Model
+class Service extends Model
 {
     protected $fillable = [
-        'title',
+        'name',
         'description',
-        'image_path',
-        'tags'
+        'price'
     ];
 }
