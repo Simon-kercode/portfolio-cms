@@ -7,17 +7,14 @@ use App\Models\User;
 
 class UserSeeder extends Seeder
 {
-    
-public function run(): void
-    
-{
-        User::create([
-            
-'name' => 'Parki',
-            
-'email' => 'simon@gmail.com',
-            
-'password' => bcrypt('password'),
-        ]);
+    public function run(): void
+    {
+        User::firstOrCreate(
+            ['email' => 'simon@gmail.com'],
+            [
+                'name' => 'Parki',
+                'password' => bcrypt('password'),
+            ]
+        );
     }
 }
