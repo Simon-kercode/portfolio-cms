@@ -2,7 +2,18 @@
     <div class="container px-4 md:px-6">
         <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-16 text-center gradient-text">Projets</h2>
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            @include('components.project-card', [
+            
+            @foreach ($projects as $project) 
+                @include('components.project-card', [
+                    'title' => $project->title,
+                    'description' => $project->description,
+                    'image' => $project->image_path,
+                    'link' => 'https://github.com',
+                    'tags' => ['Laravel', 'MySQL', 'Stripe']
+                ])                
+            @endforeach
+
+            {{-- @include('components.project-card', [
                 'title' => 'Plateforme E-commerce',
                 'description' => 'Une plateforme e-commerce complète construite avec Laravel, MySQL et intégration Stripe.',
                 'image' => '/placeholder.svg?height=400&width=600',
@@ -24,7 +35,7 @@
                 'image' => '/placeholder.svg?height=400&width=600',
                 'link' => 'https://github.com',
                 'tags' => ['OpenAI', 'Laravel', 'TailwindCSS']
-            ])
+            ]) --}}
         </div>
     </div>
     

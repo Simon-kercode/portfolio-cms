@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\Front\HomeController;
 use \App\Http\Controllers\Admin\ProjectController;
 use \App\Http\Controllers\Admin\ServiceController;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
 // Route::get('dashboard', function () {
 //     return view('dashboard');
 // });
@@ -16,7 +16,7 @@ Route::get('/', function () {
 //     Route::resource('services', ServiceController::class);
 // });
 // Admin routes
-Route::prefix('admin')->group(function () {
+Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
