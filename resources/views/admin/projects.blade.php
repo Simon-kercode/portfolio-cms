@@ -32,36 +32,36 @@
                 <thead>
                     <tr class="border-b border-primary/20">
                         <th class="px-4 py-3 text-left">Projet</th>
-                        <th class="px-4 py-3 text-left">Catégorie</th>
+                        {{-- <th class="px-4 py-3 text-left">Catégorie</th> --}}
                         <th class="px-4 py-3 text-left">Date</th>
-                        <th class="px-4 py-3 text-left">Statut</th>
+                        <th class="px-4 py-3 text-left">Tags</th>
+                        {{-- <th class="px-4 py-3 text-left">Statut</th> --}}
                         <th class="px-4 py-3 text-right">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach(range(1, 10) as $i)
+                    @foreach ($projects as $project)
                         <tr class="border-b border-primary/10 hover:bg-primary/5">
                             <td class="px-4 py-4">
                                 <div class="flex items-center">
                                     <div class="w-10 h-10 rounded bg-primary/20 flex items-center justify-center mr-3">
-                                        <span class="text-primary font-bold">P{{ $i }}</span>
+                                        <span class="text-primary font-bold">{{ Str::upper(substr($project->title, 0, 2)) }}</span>
                                     </div>
                                     <div>
-                                        <div class="font-medium">Projet {{ $i }}</div>
-                                        <div class="text-xs text-muted-foreground">ID: PRJ-{{ 1000 + $i }}</div>
+                                        <div class="font-medium">{{ $project->title }}</div>
+                                        <div class="text-xs text-muted-foreground">ID: {{ $project->id }}</div>
                                     </div>
                                 </div>
                             </td>
-                            <td class="px-4 py-4">
-                                {{ ['Web', 'Mobile', 'E-commerce', 'API', 'Design'][$i % 5] }}
+                            {{-- <td class="px-4 py-4">{{ $project->category ?? 'N/A' }}</td> --}}
+                            <td class="px-4 py-4">{{ $project->created_at->format('d/m/Y') }}</td>
+                            {{-- <td class="px-4 py-4">
+                                <span class="px-2 py-1 text-xs rounded-full bg-blue-500/20 text-blue-500">
+                                    {{ $project->status ?? 'Non défini' }}
+                                </span> --}}
                             </td>
-                            <td class="px-4 py-4">
-                                {{ date('d/m/Y', strtotime("-$i days")) }}
-                            </td>
-                            <td class="px-4 py-4">
-                                <span class="px-2 py-1 text-xs rounded-full {{ $i % 3 == 0 ? 'bg-green-500/20 text-green-500' : ($i % 3 == 1 ? 'bg-blue-500/20 text-blue-500' : 'bg-yellow-500/20 text-yellow-500') }}">
-                                    {{ $i % 3 == 0 ? 'Terminé' : ($i % 3 == 1 ? 'En cours' : 'En attente') }}
-                                </span>
+                            <td>
+                                {{-- TODO : Tags --}}
                             </td>
                             <td class="px-4 py-4 text-right">
                                 <div class="flex items-center justify-end space-x-2">
@@ -81,8 +81,12 @@
                 </tbody>
             </table>
         </div>
+
+        <div class="mt-6">
+            {{ $projects->links() }}
+        </div>
         
-        <div class="flex items-center justify-between mt-6">
+        {{-- <div class="flex items-center justify-between mt-6">
             <div class="text-sm text-muted-foreground">
                 Affichage de 1 à 10 sur 24 projets
             </div>
@@ -97,6 +101,6 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="m9 18 6-6-6-6"></path></svg>
                 </button>
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection

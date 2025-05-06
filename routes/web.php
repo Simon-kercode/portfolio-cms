@@ -12,8 +12,16 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // });
 
 // Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
-//     Route::resource('projects', ProjectController::class);
-//     Route::resource('services', ServiceController::class);
+//         // Route::get('/', function () {
+//         //     return view('admin.dashboard');
+//         // })->name('admin.dashboard');
+
+//     Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+//     Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
+//     Route::put('/projects/{project}', [ProjectController::class, 'update'])->name('projects.update');
+//     Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
+
+//     Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
 // });
 // Admin routes
 Route::middleware(['auth'])->prefix('admin')->group(function () {
@@ -21,10 +29,12 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
     
-    Route::get('/projects', function () {
-        return view('admin.projects');
-    })->name('admin.projects');
+    // Route::get('/projects', function () {
+    //     return view('admin.projects');
+    // })->name('admin.projects');
     
+    Route::get('/projects', [ProjectController::class, 'index'])->name('admin.projects');
+
     Route::get('/services', function () {
         return view('admin.services');
     })->name('admin.services');
