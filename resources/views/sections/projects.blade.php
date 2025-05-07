@@ -9,33 +9,9 @@
                     'description' => $project->description,
                     'image' => $project->image_path,
                     'link' => 'https://github.com',
-                    'tags' => ['Laravel', 'MySQL', 'Stripe']
+                    'tags' => $project->tags
                 ])                
             @endforeach
-
-            {{-- @include('components.project-card', [
-                'title' => 'Plateforme E-commerce',
-                'description' => 'Une plateforme e-commerce complète construite avec Laravel, MySQL et intégration Stripe.',
-                'image' => '/placeholder.svg?height=400&width=600',
-                'link' => 'https://github.com',
-                'tags' => ['Laravel', 'MySQL', 'Stripe']
-            ])
-            
-            @include('components.project-card', [
-                'title' => 'Application de Gestion de Tâches',
-                'description' => 'Une application de gestion de tâches en temps réel avec fonctionnalités de collaboration d\'équipe.',
-                'image' => '/placeholder.svg?height=400&width=600',
-                'link' => 'https://github.com',
-                'tags' => ['Laravel', 'Livewire', 'Alpine.js']
-            ])
-            
-            @include('components.project-card', [
-                'title' => 'Interface de Chat IA',
-                'description' => 'Une interface de chat alimentée par l\'IA avec des capacités de traitement du langage naturel.',
-                'image' => '/placeholder.svg?height=400&width=600',
-                'link' => 'https://github.com',
-                'tags' => ['OpenAI', 'Laravel', 'TailwindCSS']
-            ]) --}}
         </div>
     </div>
     

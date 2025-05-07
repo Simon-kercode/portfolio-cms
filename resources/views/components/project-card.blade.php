@@ -19,7 +19,7 @@
     <div class="flex flex-wrap gap-2">
         @foreach($tags as $tag)
             <span class="inline-flex items-center rounded-md bg-primary/10 px-3 py-1 text-xs font-medium text-primary border border-primary/20">
-                {{ $tag }}
+                {{ $tag->name }}
             </span>
         @endforeach
     </div>

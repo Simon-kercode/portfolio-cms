@@ -14,7 +14,7 @@ class ProjectController extends Controller
     public function index()
     {
         // On récupère tous les projest, les plus récents d'abord (10 par page)
-        $projects = Project::latest()->paginate(10);
+        $projects = Project::with('tags')->latest()->paginate(10);
         return view('admin.projects', compact('projects'));
     }
 

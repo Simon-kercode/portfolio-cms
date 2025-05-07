@@ -62,6 +62,9 @@
                             </td>
                             <td>
                                 {{-- TODO : Tags --}}
+                                @foreach ($project->tags as $tag)
+                                    <span class="inline-flex items-center rounded-md bg-primary/10 px-3 py-1 text-xs font-medium text-primary border border-primary/20">{{ $tag->name }}</span>
+                                @endforeach
                             </td>
                             <td class="px-4 py-4 text-right">
                                 <div class="flex items-center justify-end space-x-2">

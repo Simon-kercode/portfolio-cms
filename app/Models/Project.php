@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Tag;
 use ApiPlatform\Metadata\ApiResource;
 
 
@@ -13,6 +14,9 @@ class Project extends Model
         'title',
         'description',
         'image_path',
-        'tags'
     ];
+
+    public function tags() {
+        return $this->belongsToMany(Tag::class);
+    }
 }

@@ -1,5 +1,5 @@
 <aside class="fixed inset-y-0 left-0 z-50 w-64 bg-card border-r border-primary/20 transition-all duration-300 transform"
-       :class="{ '-translate-x-full lg:translate-x-0 lg:w-64': sidebarOpen, '-translate-x-full lg:translate-x-0 lg:w-20': !sidebarOpen }">
+:class="{'translate-x-0 lg:translate-x-0 lg:w-64': sidebarOpen,'-translate-x-full lg:translate-x-0 lg:w-20': !sidebarOpen}">
     
     <div class="flex items-center justify-between h-16 px-4 border-b border-primary/20">
         <div class="flex items-center">

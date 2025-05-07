@@ -21,7 +21,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="min-h-screen bg-background font-sans antialiased" style="font-family: 'Space Grotesk', sans-serif;">
-    <div class="min-h-screen bg-background relative overflow-hidden" x-data="{ sidebarOpen: true }">
+    <div class="min-h-screen bg-background relative overflow-hidden" x-data="{ sidebarOpen: false }" >
         <!-- Animated background -->
         <div class="animated-bg">
             <span></span>
